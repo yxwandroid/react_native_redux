@@ -5,7 +5,11 @@
 // 然后组件会根据 state 刷新。当我们确定了组件的 state 对象结构 和 action 行为的时候就可以编写 reducer 中的内容
 import {CHANGE_TEXT, changeText} from '../action/action';
 
-const mainReducer = (state = changeText('welcome to React Native'), action) => {
+
+const initialState = {
+    text: 'hello world',
+}
+export default function mainReducer(state = initialState, action) {
 
     const newState = state;
     const text = action.text;
@@ -15,15 +19,14 @@ const mainReducer = (state = changeText('welcome to React Native'), action) => {
         case CHANGE_TEXT:
             return {
                 ...newState,
-                text: '改变了' + text
+                text: '改变了' + text,
             };
 
         default:
             return {
                 ...newState,
-                text: state.text
+                text: state.text,
             }
     }
 };
 
-export default mainReducer;

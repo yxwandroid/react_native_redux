@@ -12,11 +12,11 @@ export default class TestText extends Component {
     render() {
 
         // 获取 props 中的 value
-        const { value } = this.props;
+        const { text } = this.props;
 
         return (
             // 根据 value 改变内部文字
-            <Text>{value}</Text>
+            <Text>{this.props.text}</Text>
         );
     }
 }
